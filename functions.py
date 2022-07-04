@@ -4,7 +4,7 @@ import math
 #####avg magnetization############
 
 def avg_mag(A):
-  return np.sum(A)/A.size
+  return np.sum(A)/np.size(A)
   
 ######get neighbors of (i, j)#####
 
@@ -20,6 +20,11 @@ def int_term(A):
   for i in range(N):
     for j in range(N):
       total = total - A[i][j]*np.sum(nbrs(A, i, j))
+  return total/2.0
   
-  return total
-  
+############Energy################
+
+def E(A, B = 0.0, J = 1.0):
+  return -B*avg_mag(A)*np.size(A) - J*int_term(A)
+
+###################################
