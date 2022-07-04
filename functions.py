@@ -27,4 +27,9 @@ def int_term(A):
 def E(A, B = 0.0, J = 1.0):
   return -B*avg_mag(A)*np.size(A) - J*int_term(A)
 
-###################################
+###########Generator for a random lattice#####
+
+def generate(N):
+  return np.random.choice([-1, 1], (N, N))
+
+####################################
